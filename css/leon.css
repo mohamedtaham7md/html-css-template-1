@@ -1,0 +1,544 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-color: #10cab7;
+    --secondary-color: #2c4755;
+    --feature-padding: 60px;
+}
+
+body {
+    font-family: "Work Sans", sans-serif;
+    scroll-behavior: smooth;
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+/*components*/
+.special-heading {
+    color: #ebeced;
+    font-size: 4rem;
+    font-weight: 800;
+    text-transform: capitalize;
+    text-align: center;
+    margin: 0;
+}
+
+.special-heading+p {
+    text-align: center;
+    margin: -24px 0 0 0;
+    color: #797979;
+    font-weight: 700;
+}
+
+
+/* header */
+header {
+    padding: 20px;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    width: 60px;
+}
+
+header .links {
+    position: relative;
+}
+
+header .links:hover span.icon span:nth-child(2) {
+    width: 100%;
+}
+
+header .links .icon {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    width: 30px;
+}
+
+header .links .icon span {
+    height: 2px;
+    background-color: #24484f;
+    margin-bottom: 5px;
+}
+
+header .links .icon span:first-child,
+header .links .icon span:last-child {
+    width: 100%;
+}
+
+header .links .icon span:nth-child(2) {
+    width: 50%;
+    transition: 0.3s;
+}
+
+header .links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: #24484f75;
+    position: absolute;
+    right: 0;
+    top: calc(100% + 15px);
+    min-width: 200px;
+    display: none;
+    z-index: 10;
+}
+
+header .links:hover ul {
+    display: block;
+}
+
+header .links ul::before {
+    content: "";
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #24484f75 transparent;
+    position: absolute;
+    right: 5px;
+    top: -20px;
+}
+
+header .links ul li a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: #333;
+    transition: 0.3s;
+}
+
+header .links ul li a:hover {
+    padding-left: 25px;
+}
+
+header .links ul li:not(:last-child) a {
+    border-bottom: 1px solid #ddd;
+}
+
+section.landing {
+    background-image: url(../images/landing.jpg);
+    height: calc(100vh - 64px);
+    background-size: cover;
+    position: relative;
+    perspective: 500px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+
+
+section.landing .intro-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    max-width: 100%;
+    text-align: center;
+    animation: landing-text 2s ease-in;
+}
+
+section.landing .intro-text::after {
+    content: "";
+    width: 0%;
+    border-bottom: 75px solid var(--main-color);
+    border-radius: 30px;
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    z-index: -1;
+    opacity: 0.7;
+    animation: intro-text-after 0.6s 0s ease-out both;
+}
+
+section.landing .intro-text span {
+    display: inline-block;
+    animation: landing-text-span-1 0.6s 0.6s cubic-bezier(0.70, 0.3, 0.94, 1.50) infinite alternate;
+}
+
+
+
+@keyframes intro-text-after {
+    to {
+        width: 100%;
+    }
+
+}
+
+@keyframes landing-text-span-1 {
+
+    100% {
+        transform: translateY(-20px);
+    }
+}
+
+
+section.landing .intro-text h2 {
+    margin: 0;
+    color: var(--main-color);
+    font-weight: bold;
+    font-size: 3rem;
+
+}
+
+section.landing .intro-text p {
+    font-size: 1.2rem;
+}
+
+section.features {
+    padding-top: var(--feature-padding);
+    padding-bottom: var(--feature-padding);
+    background-color: #e0e0e0;
+}
+
+section.features .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+section.features .feat {
+    padding: 20px;
+    text-align: center;
+}
+
+section.features .feat i {
+    color: var(--main-color);
+}
+
+section.features .feat h3 {
+    font-weight: 800;
+    margin: 30px 0;
+}
+
+section.features .feat p {
+    line-height: 1.8;
+    color: #777;
+    font-size: 0.9rem;
+}
+
+section.services {
+    padding-top: var(--feature-padding);
+    padding-bottom: var(--feature-padding);
+}
+
+section.services .services-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    margin-top: 100px;
+    margin-bottom: 30px;
+    grid-gap: 40px;
+}
+
+section.services .services-content .serv {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+section.services .services-content .serv i {
+    color: var(--main-color);
+    font-size: 2rem;
+    flex-basis: 60px;
+}
+
+section.services .services-content .serv h3 {
+    margin: 0 0 30px 0;
+
+}
+
+section.services .services-content .serv p {
+    color: #bfbbbb;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+section.services .services-content .services-img img {
+    width: 260px;
+}
+
+section.services .services-content .services-img {
+    text-align: center;
+    position: relative;
+
+}
+
+section.services .services-content .services-img::before {
+    content: "";
+    position: absolute;
+    background-color: var(--secondary-color);
+    top: -50px;
+    right: 0;
+    height: calc(100% + 100px);
+    width: 100px;
+    z-index: -1;
+}
+
+section.Portfolio {
+    padding-top: var(--feature-padding);
+    padding-bottom: var(--feature-padding);
+    background-color: #e0e0e0;
+}
+
+section.Portfolio .Portfolio-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    margin-top: 100px;
+    margin-bottom: 30px;
+    grid-gap: 40px;
+
+}
+
+section.Portfolio .Portfolio-content .card {
+    background-color: white;
+}
+
+section.Portfolio .Portfolio-content .card img {
+    max-width: 100%;
+}
+
+section.Portfolio .Portfolio-content .card-info {
+    padding: 20px;
+    text-align: center;
+    /* background-color: white; */
+}
+
+section.Portfolio .Portfolio-content .card-info h3 {
+    margin: 0;
+}
+
+section.Portfolio .Portfolio-content .card-info p {
+    color: #bfbbbb;
+    font-weight: 400;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+section.about {
+    padding-top: var(--feature-padding);
+    padding-bottom: var(--feature-padding);
+}
+
+section.about .about-content {
+    display: flex;
+    margin-top: 100px;
+    margin-bottom: 30px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+section.about .about-content .about-img {
+    width: 250px;
+    height: 375px;
+    position: relative;
+}
+
+section.about .about-content .about-img::before {
+    content: "";
+    position: absolute;
+    top: -37.5px;
+    left: -20px;
+    height: 120%;
+    width: 100px;
+    background-color: #ebeced;
+    z-index: -1;
+}
+
+section.about .about-content .about-img::after {
+    content: "";
+    position: absolute;
+    width: 14vw;
+    height: 300px;
+    border-left: 80px solid var(--main-color);
+    border-bottom: 80px solid var(--main-color);
+    top: -40px;
+    right: -15vw;
+    z-index: -1;
+
+}
+
+section.about .about-content .about-text {
+    flex-basis: calc(100% - 500px);
+}
+
+section.about .about-content .about-text p:first-of-type {
+    font-weight: bold;
+    line-height: 2;
+    margin-bottom: 50px;
+    margin-top: 100px;
+}
+
+
+section.about .about-content .about-text hr {
+    display: inline-block;
+    width: 50%;
+    border-color: var(--main-color);
+}
+
+
+section.about .about-content .about-text p:last-of-type {
+    line-height: 2;
+    color: #bfbbbb;
+}
+
+section.Contact {
+    padding-top: var(--feature-padding);
+    padding-bottom: var(--feature-padding);
+    background-color: #e0e0e0;
+}
+
+section.Contact .Contact-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+section.Contact .Contact-content>p {
+    color: #2c4755;
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: -2px;
+    margin: 26px 0 10px 0;
+
+}
+
+section.Contact .Contact-content>a {
+    text-decoration: none;
+    font-size: 1.35rem;
+    color: var(--main-color);
+    font-weight: 800;
+}
+
+section.Contact .Contact-content .social {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+section.Contact .Contact-content .social i {
+    color: var(--secondary-color);
+}
+
+footer {
+    background-color: var(--secondary-color);
+    margin: 0;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer>p {
+    margin: 0;
+    color: white;
+    font-size: 18px;
+}
+
+footer p>span {
+    color: var(--main-color);
+}
+
+@media (max-width: 1199px) {
+    section.services .services-content .services-img {
+        display: none;
+    }
+}
+
+
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+
+    .special-heading {
+        font-size: 6.25rem;
+    }
+
+    .special-heading+p {
+        margin: -30px 0 0 0;
+    }
+
+    section.services .services-content .serv {
+        text-align: left;
+        flex-direction: row;
+        height: 230px;
+    }
+
+    section.services .services-content .serv .sev-text {
+        flex: 1;
+    }
+
+    section.Portfolio .Portfolio-content .card-info {
+        text-align: left;
+    }
+
+    section.Contact .Contact-content>p {
+        font-size: 2rem
+    }
+
+    section.Contact .Contact-content>a {
+        font-size: 1.5rem;
+    }
+
+    section.Contact .Contact-content .social {
+        flex-direction: row;
+        font-size: 16px;
+        align-items: center;
+    }
+
+    section.Contact .Contact-content .social>div {
+        margin-left: 10px;
+    }
+
+
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+
+    section.about .about-content {
+        flex-direction: row;
+    }
+
+    section.about .about-content p:first-of-type {
+        margin-top: 0;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+
+    section.about .about-content .about-img::after {
+        width: 12vw;
+        right: -13vw;
+    }
+}
